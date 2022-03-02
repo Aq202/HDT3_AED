@@ -1,3 +1,5 @@
+package Files;
+
 public class CompareInt implements IComparator<Integer> {
 
 	@Override
