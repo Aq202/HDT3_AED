@@ -7,6 +7,10 @@ public class Sort <T> {
 		this.comparador = comparador;
 	}
 	
+	/**
+	 * Ordena los numeros enteros de un array a traves del metodo burbuja
+	 * @param myArray Integer[]
+	 */
     public void bubbleSort(T[] myArray){
         for (int i = 0; i<myArray.length-1; i++){
             for (int j = i + 1; j < myArray.length; j++){
@@ -19,6 +23,12 @@ public class Sort <T> {
         }
     }
 
+    /**
+	 * Ordena los numeros enteros de un array a traves del metodo quicksort
+	 * @param myArray Integer[]
+	 * @param inf int
+	 * @param sup int
+	 */
     public void quickSort(T[] myArray, int inf, int sup){
         int i = inf - 1;
         int j = sup;
@@ -49,6 +59,11 @@ public class Sort <T> {
 	    quickSort(myArray, i + 1, sup);
     }
 
+    /**
+	 * Ordena los numeros enteros de un array a traves del metodo burbuja
+	 * @param myArray Integer[]
+	 * @param size int
+	 */
     public void gnomeSort(T[] myArray, int size){
         int index = 0;
         while (index < size){
