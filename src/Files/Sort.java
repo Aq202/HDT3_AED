@@ -9,6 +9,11 @@ public class Sort <T> {
 		this.comparador = comparador;
 	}
 	
+	/**
+	 * Se encarga de retornar el entero más grande dentro de un array.
+	 * @param elements array.
+	 * @return
+	 */
 	private int getMaxNumber(Integer[] elements) {
 		int max = elements[0];
 		for(int number:elements) {
@@ -17,6 +22,12 @@ public class Sort <T> {
 		return max;
 	}
 	
+	/**
+	 * Ordena los numeros de un array en base a la unidad del exponente especificado.
+	 * @param elements Integer[]
+	 * @param exp exponente
+	 * @return Integer[]. Array ordenado
+	 */
 	private Integer[] radix_orderByDigit(Integer[] elements, int exp) {
 		
 		Integer[][] numbersByDigit = new Integer[10][elements.length];
@@ -50,7 +61,11 @@ public class Sort <T> {
 		return output;
 	}
 	
-
+	/**
+	 * Ordena los numeros enteros de un array a traves del metodo radix
+	 * @param elements Integer[]
+	 * @return Integer[]. Array ordenado.
+	 */
 	public Integer[] radixSort(Integer[] elements) {
 		
 		if(elements == null || elements.length == 0) return null;
