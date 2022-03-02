@@ -69,7 +69,7 @@ class SortTests {
 	void testGnomeSort() {
 		Sort comparador = new Sort(new CompareInt());
 		Integer[] arreglo = new Integer[] {4,12,7,8,26,55,21}; //4,7,8,12,21,26,55
-		comparador.gnomeSort(arreglo, arreglo.length);
+		comparador.gnomeSort(arreglo);
 		assertEquals(arreglo[0], 4);
 		assertEquals(arreglo[1], 7);
 		assertEquals(arreglo[2], 8);

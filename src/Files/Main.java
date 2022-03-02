@@ -43,7 +43,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Sort sort = new Sort(new CompareInt());
+		Sort<Integer> sort = new Sort<Integer>(new CompareInt());
 
 		boolean end = false;
 		while (!end) {
@@ -105,7 +105,9 @@ public class Main {
 					
 					printArrayValues("Datos ordenados con radix:\n", sort.radixSort(data));
 					printArrayValues("Datos ordenados con merge:\n", sort.mergeSort(data));
-					
+					printArrayValues("Datos ordenados con QuickSort:\n", sort.quickSort(data, 0, data.length - 1));
+					printArrayValues("Datos ordenados con bubbleSort:\n", sort.bubbleSort(data));
+					printArrayValues("Datos ordenados con gnome:\n", sort.gnomeSort(data));
 					
 					
 				} catch (NumberFormatException ex) {

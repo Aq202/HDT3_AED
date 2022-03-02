@@ -149,7 +149,7 @@ public class Sort <T> {
 	 /** Ordena los numeros enteros de un array a traves del metodo burbuja
 	 * @param myArray Integer[]
 	 */
-    public void bubbleSort(T[] myArray){
+    public T[] bubbleSort(T[] myArray){
         for (int i = 0; i<myArray.length-1; i++){
             for (int j = i + 1; j < myArray.length; j++){
                 if(comparador.Compare(myArray[i], myArray[j]) > 0){
@@ -159,6 +159,7 @@ public class Sort <T> {
                 }
             }
         }
+        return myArray;
     }
 
     /**
@@ -167,13 +168,13 @@ public class Sort <T> {
 	 * @param inf int
 	 * @param sup int
 	 */
-    public void quickSort(T[] myArray, int inf, int sup){
+    public T[] quickSort(T[] myArray, int inf, int sup){
         int i = inf - 1;
         int j = sup;
         boolean flag = true;
         T temp;
         if (inf >= sup){
-            return;
+            return null;
         }
 
         T element_div = myArray[sup];
@@ -195,15 +196,17 @@ public class Sort <T> {
 	    myArray[sup] = temp;
 	    quickSort(myArray, inf, i - 1);
 	    quickSort(myArray, i + 1, sup);
+	    
+	    return myArray;
     }
 
     /**
 	 * Ordena los numeros enteros de un array a traves del metodo burbuja
 	 * @param myArray Integer[]
-	 * @param size int
 	 */
-    public void gnomeSort(T[] myArray, int size){
+    public T[] gnomeSort(T[] myArray){
         int index = 0;
+        int size = myArray.length;
         while (index < size){
             if (index == 0) index++;
             if (comparador.Compare(myArray[index], myArray[index - 1]) > 0){
@@ -216,5 +219,6 @@ public class Sort <T> {
                 index--;
             }
         }
+        return myArray;
     }
 }
