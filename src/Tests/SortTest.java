@@ -11,7 +11,7 @@ class SortTest {
 	void testMergeSort() {
 		Sort comparator = new Sort(new CompareInt());
 		Integer[] arreglo = {12,5,68531,3,84132,68,76,4532,121,684,312,318,6764,1,7,46,321,6,8,4};
-		comparator.mergeSort(arreglo, 0, arreglo.length-1);
+		comparator.mergeSort(arreglo);
 		assertEquals(arreglo[0],1);
 		assertEquals(arreglo[1],3);
 		assertEquals(arreglo[2],4);
