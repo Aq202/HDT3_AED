@@ -1,3 +1,13 @@
+/**
+ * Programa que permite escribir y leer un archivo con numeros enteros y posteriormente ordenarlos mediante distintos metodos. 
+ * Realizado con la finalidad de determinar el tiempo de ejecucion de cada metodo.
+ * Programado por: 
+ * Erick Stiv Junior Guerra - 21781
+ * Diego Andres Morales Aquino - 21762
+ * Pablo Andres Zamora Vasquez - 21780
+ * @version 04/03/2022
+ */
+
 package Files;
 
 import java.io.IOException;
@@ -6,8 +16,21 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Clase Main. Permite preguntar al usuario la cantidad de elementos a ordenar y los despliega una vez ordenados.
+ * @author Diego Morales, Erick Guerra, Pablo Zamora
+ *
+ */
 public class Main {
 
+	/**
+	 * Metodo getValidInt. Permite verificar si la opcion ingresada por el usuario es valida.
+	 * @param sc Scanner utilizado para el texto que ingresa el usuario
+	 * @param message Texto ingresado
+	 * @param absoluteValues Permite convertir cualquier entero a positivo
+	 * @param validValues Valores validos
+	 * @return int Opcion ingresada
+	 */
 	private static int getValidInt(Scanner sc, String message, boolean absoluteValues, Integer... validValues) {
 
 		while (true) {
@@ -30,6 +53,11 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Metodo printArrayValues
+	 * @param title Texto a mostrar
+	 * @param values Valores a mostrar
+	 */
 	private static void printArrayValues(String title, Integer... values) {
 		
 		System.out.println(title);
@@ -41,9 +69,13 @@ public class Main {
 		System.out.println("");
 	}
 
+	/**
+	 * Metodo main. Crea el comparador utilizando la interfaz CompareInt y despliega los valores ya ordenados.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Sort<Integer> sort = new Sort<Integer>(new CompareInt());
+		Sort<Integer> sort = new Sort<Integer>(new CompareInt()); //Se crea el objeto que ordenara los elementos.
 
 		boolean end = false;
 		while (!end) {
@@ -60,7 +92,7 @@ public class Main {
 			int option = getValidInt(sc, menu, false, 1, 2, 3, 4);
 
 			switch (option) {
-			case 1: {
+			case 1: { //Crear arreglo de datos desordenado
 
 				Random r = new Random();
 
@@ -79,7 +111,7 @@ public class Main {
 
 				break;
 			}
-			case 2: {
+			case 2: { //Crear arreglo de datos ordenado
 
 				Random r = new Random();
 
@@ -106,7 +138,7 @@ public class Main {
 
 				break;
 			}
-			case 3: {
+			case 3: { //Ordenar el arreglo y desplegarlo
 
 				String[] fileContent;
 				try {
@@ -146,7 +178,7 @@ public class Main {
 
 				break;
 			}
-			case 4: {
+			case 4: { //Finalizar el programa
 				System.out.println("Hasta pronto!");
 				end = true;
 				break;

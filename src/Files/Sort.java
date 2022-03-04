@@ -1,21 +1,41 @@
 package Files;
 
 import java.util.Arrays;
-
+/**
+ * Clase Sort. Posee todos los metodos para ordenar los elementos del arreglo.
+ * @author Pablo Zamora, Diego Morales, Erick Guerra
+ * @version 04/03/2022
+ * @param <T> Tipo de objeto de los elementos a ordenar
+ */
 public class Sort <T> {
 	public IComparator comparador;
 	
+	/**
+	 * Metodo constructor.
+	 * @param comparador Comparador que se utilizara
+	 */
 	public Sort(IComparator comparador) {
-		this.comparador = comparador;
+		this.comparador = comparador; //Se crea el comparador del tipo indicado
 	}
 	
+	/**
+	 * Metodo mergeSort. Permite obtener el arreglo a ordenar y llama al metodo mSort.
+	 * @param arreglo
+	 * @return Integer[] Array ordenado
+	 */
 	public Integer[] mergeSort(Integer[] arreglo) {
 		Integer[] arr = arreglo;
 		mSort(arr, 0, arr.length-1);
 		return arr;
 	}
 	
-	public void mSort(Integer[] arreglo, int inicio, int fin) {
+	/**
+	 * Metodo mSort. Permite obtener las dos mitades del arreglo, ordenarlas y unirlas.
+	 * @param arreglo
+	 * @param inicio
+	 * @param fin
+	 */
+	private void mSort(Integer[] arreglo, int inicio, int fin) {
 		if(inicio<fin) {
 			// Encontrar el punto medio del arreglo
 			int medio = inicio + (fin-inicio)/2;
@@ -29,6 +49,13 @@ public class Sort <T> {
 		}
 	}
 	
+	/**
+	 * Metodo merge. Permite crear arreglos temporales y ordenarlos. Posteriormente se unen.
+	 * @param arreglo
+	 * @param inicio
+	 * @param medio
+	 * @param fin
+	 */
 	public void merge(Integer[] arreglo, int inicio, int medio, int fin)
     {
 		// Encontrar el tamano de los subarreglos a ser unidos
@@ -79,7 +106,7 @@ public class Sort <T> {
 		}
 	}
 	/**
-	 * Se encarga de retornar el entero m�s grande dentro de un array.
+	 * Metodo getMaxNumber. Se encarga de retornar el entero mas grande dentro de un array.
 	 * @param elements array.
 	 * @return
 	 */
@@ -92,10 +119,10 @@ public class Sort <T> {
 	}
 	
 	/**
-	 * Ordena los numeros de un array en base a la unidad del exponente especificado.
+	 * Metodo radix_orderByDigit. Ordena los numeros de un array en base a la unidad del exponente especificado.
 	 * @param elements Integer[]
 	 * @param exp exponente
-	 * @return Integer[]. Array ordenado
+	 * @return Integer[] Array ordenado
 	 */
 	private Integer[] radix_orderByDigit(Integer[] elements, int exp) {
 		
@@ -131,9 +158,9 @@ public class Sort <T> {
 	}
 	
 	/**
-	 * Ordena los numeros enteros de un array a traves del metodo radix
+	 * Metodo radixSort. Ordena los numeros enteros de un array a traves del metodo radix
 	 * @param elements Integer[]
-	 * @return Integer[]. Array ordenado.
+	 * @return Integer[] Array ordenado.
 	 */
 	public Integer[] radixSort(Integer[] elements) {
 		
@@ -146,8 +173,9 @@ public class Sort <T> {
 		}
 		return elements;
 	}
-	 /** Ordena los numeros enteros de un array a traves del metodo burbuja
-	 * @param myArray Integer[]
+	/** Metodo bubbleSort. Ordena los numeros enteros de un array a traves del metodo burbuja
+	 * @param myArray T[]
+	 * @return T[] Arreglo ordenado.
 	 */
     public T[] bubbleSort(T[] myArray){
         for (int i = 0; i<myArray.length-1; i++){
@@ -164,9 +192,9 @@ public class Sort <T> {
 
     /**
 	 * Ordena los numeros enteros de un array a traves del metodo quicksort
-	 * @param myArray Integer[]
-	 * @param inf int
-	 * @param sup int
+	 * @param myArray T[]
+	 * @param inf int Indice inferior del array, deberia ser 0
+	 * @param sup int Indice superior del array
 	 */
     public T[] quickSort(T[] myArray, int inf, int sup){
         int i = inf - 1;
@@ -201,8 +229,9 @@ public class Sort <T> {
     }
 
     /**
-	 * Ordena los numeros enteros de un array a traves del metodo burbuja
-	 * @param myArray Integer[]
+	 * Metodo gnomeSort. Ordena los numeros enteros de un array a traves del metodo burbuja
+	 * @param myArray T[]
+	 * @return T[] Array ordenado
 	 */
     public T[] gnomeSort(T[] myArray){
         int index = 0;

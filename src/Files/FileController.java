@@ -10,9 +10,8 @@ import java.util.ArrayList;
 
 /**
  * Clase FileController.
- * @author Diego Morales
- * Programado el 02/03/2022
- *
+ * @author Diego Morales, Erick Guerra, Pablo Zamora
+ * @version 04/03/2022
  */
 
 public class FileController {
