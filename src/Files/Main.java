@@ -51,12 +51,13 @@ public class Main {
 					Menu de opciones:
 
 					1. Agregar numeros random al almacenamiento.
-					2. Realizar sorts.
-					3. Salir.
+					2. Agregar numeros ordenados al almacenamiento.
+					3. Realizar sorts.
+					4. Salir.
 
 					""";
 
-			int option = getValidInt(sc, menu, false, 1, 2, 3);
+			int option = getValidInt(sc, menu, false, 1, 2, 3, 4);
 
 			switch (option) {
 			case 1: {
@@ -79,6 +80,33 @@ public class Main {
 				break;
 			}
 			case 2: {
+
+				Random r = new Random();
+
+				int size = getValidInt(sc, "¿Cuantos datos desea que contenga el archivo?", true);
+
+				String data = "";
+				int i=0;
+				while(i<size-1) {
+					if(i==0) {
+						int num = r.nextInt(10000);;
+						data += num + " ";
+						i++;
+					}else{
+						data += (Integer.parseInt(data.split(" ")[i-1])+1) + " ";
+						i++;
+					}
+				}
+
+				try {
+					FileController.writeFile(data);
+				} catch (IOException e) {
+
+				}
+
+				break;
+			}
+			case 3: {
 
 				String[] fileContent;
 				try {
@@ -118,7 +146,7 @@ public class Main {
 
 				break;
 			}
-			case 3: {
+			case 4: {
 				System.out.println("Hasta pronto!");
 				end = true;
 				break;
